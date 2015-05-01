@@ -9,7 +9,7 @@
 /**
  * Configuration form.
  */
-function lesser_forms_configuration_form(array $form, array $form_state) {
+function lesser_forms_configuration_form($form, $form_state) {
   $form = array();
   $settings = variable_get('lesser_forms_config', array());
 
@@ -88,7 +88,7 @@ function lesser_forms_configuration_form(array $form, array $form_state) {
 /**
  * Custom submit handler.
  */
-function lesser_forms_configuration_form_submit(array &$form, array &$form_state) {
+function lesser_forms_configuration_form_submit(&$form, &$form_state) {
 
   $settings = variable_get('lesser_forms_config', array());
   $settings = array_merge($settings, $form_state['values']);
