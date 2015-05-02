@@ -1,1 +1,3 @@
 name = Lesser Forms
+description = Beautify content creation by removing unneeded config.
+configure = admin/config/content/lesser_forms
