@@ -11,16 +11,10 @@
  */
 function lesser_forms_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id) {
   $user = \Drupal::currentUser();
-
-  // @FIXME
-// Could not extract the default value because it is either indeterminate, or
-// not scalar. You'll need to provide a default value in
-// config/install/lesser_forms.settings.yml and config/schema/lesser_forms.schema.yml.
-$settings = \Drupal::config('lesser_forms.settings')->get('lesser_forms_config');
+  $settings = \Drupal::config('lesser_forms.settings')->get('lesser_forms_config');
   $user_roles = isset($settings['applies_to']) ? $settings['applies_to'] : array();
 
   if (array_intersect(array_keys(array_filter($user_roles)), $user->roles)) {
-
     if (isset($settings['promote']) && $settings['promote']) {
       $form['options']['promote']['#access'] = FALSE;
     }
@@ -55,7 +49,7 @@ $settings = \Drupal::config('lesser_forms.settings')->get('lesser_forms_config')
  * @return array
  *   Returns the form array.
  */
-function lesser_forms_form_after_build(array $form, array &$form_state) {
+function lesser_forms_form_after_build(array $form, &$form_state) {
   $form['path']['#access'] = FALSE;
   return ($form);
 }
