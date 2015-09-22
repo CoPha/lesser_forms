@@ -1,0 +1,5 @@
+lesser_forms.config:
+  title: 'Display Suite'
+  description: 'Manage layouts for entities and configure fields etc.'
+  route_name: lesser_forms.config
+  parent: system.admin_structure
