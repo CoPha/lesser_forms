@@ -59,39 +59,3 @@ function lesser_forms_form_after_build(array $form, array &$form_state) {
   $form['path']['#access'] = FALSE;
   return ($form);
 }
-
-/**
- * @FIXME
- * This implementation of hook_menu() cannot be automatically converted because
- * it contains logic (i.e., branching statements, function calls, object
- * instantiation, etc.) You will need to convert it manually. Sorry!
- * 
- * For more information on how to convert hook_menu() to Drupal 8's new routing
- * and linking systems, see https://api.drupal.org/api/drupal/core%21includes%21menu.inc/group/menu/8
- */
-function lesser_forms_menu() {
-  $items['admin/config/content/lesser_forms'] = array(
-    'title' => 'Lesser Forms',
-    'description' => 'Configure Lesser forms settings.',
-    'page callback' => 'drupal_get_form',
-    'type' => MENU_NORMAL_ITEM,
-    'page arguments' => array('lesser_forms_configuration_form'),
-    'access arguments' => array('administer lesser forms'),
-    'file' => 'admin/lesser_forms.admin.inc',
-    'file path' => drupal_get_path('module', 'lesser_forms'),
-  );
-
-  return $items;
-}
-
-/**
- * Implements hook_permission().
- */
-function lesser_forms_permission() {
-  return array(
-    'administer lesser forms' => array(
-      'title' => t('Administer Lesser Forms'),
-      'description' => t('Perform administration tasks for Lesser Forms UI.'),
-    ),
-  );
-}
