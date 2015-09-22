@@ -1,6 +1,4 @@
 name: 'Lesser Forms'
 description: 'Beautify content creation by removing unneeded config.'
-type: module
 core: 8.x
-package: 'Content Authoring'
-configure: lesser_forms.config
+type: module

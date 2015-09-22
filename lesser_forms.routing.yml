@@ -1,7 +1,0 @@
-lesser_forms.config:
-  path: 'admin/config/content/lesser_forms'
-  defaults:
-    _controller: '\Drupal\lesser_forms\Controller\LesserFormsController::config'
-    _title: 'Configure Lesser Forms'
-  requirements:
-    _permission: 'configure lesser forms'
