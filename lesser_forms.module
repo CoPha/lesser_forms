@@ -20,13 +20,13 @@ function lesser_forms_form_alter(array &$form, \Drupal\Core\Form\FormStateInterf
 
   if (array_intersect(array_keys(array_filter($settings['applies_to'])), $user->roles)) {
     if (isset($settings['promote']) && $settings['promote']) {
-      $form['options']['promote']['#access'] = FALSE;
+      $form['promote']['#access'] = FALSE;
     }
     if (isset($settings['sticky']) && $settings['sticky']) {
-      $form['options']['sticky']['#access'] = FALSE;
+      $form['sticky']['#access'] = FALSE;
     }
     if (isset($settings['preview']) && $settings['preview']) {
-      $form['actions']['preview']['#access'] = FALSE;
+      $form['preview']['#access'] = FALSE;
     }
     if (isset($settings['author']) && $settings['author']) {
       $form['author']['#access'] = FALSE;
