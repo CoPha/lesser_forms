@@ -1,1 +1,3 @@
-lesser_forms_config: NULL
+lesser_forms_config:
+  isset: FALSE
+  roles: NULL
