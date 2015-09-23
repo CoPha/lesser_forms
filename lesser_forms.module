@@ -11,10 +11,14 @@
  */
 function lesser_forms_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id) {
   $user = \Drupal::currentUser();
-  $settings = \Drupal::config('lesser_forms.settings')->get('lesser_forms_config');
-  $user_roles = isset($settings['applies_to']) ? $settings['applies_to'] : array();
+  $settings = \Drupal::config('lesser_forms.settings')
+    ->get('lesser_forms_config');
 
-  if (array_intersect(array_keys(array_filter($user_roles)), $user->roles)) {
+  if ($settings == NULL) {
+    return;
+  }
+
+  if (array_intersect(array_keys(array_filter($settings['applies_to'])), $user->roles)) {
     if (isset($settings['promote']) && $settings['promote']) {
       $form['options']['promote']['#access'] = FALSE;
     }

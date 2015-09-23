@@ -14,8 +14,13 @@ class LesserFormsController {
    * Show the configuration panel.
    */
   public function config() {
+
+    $settings = \Drupal::config('lesser_forms.settings')
+      ->get('lesser_forms_config');
+
+
     return array(
-      '#markup' => t('Hello World!'),
+      '#markup' => var_dump($settings),
     );
   }
 }
