@@ -6,12 +6,14 @@
 
 namespace Drupal\lesser_forms\Controller;
 
+use Drupal\Core\Form\ConfigFormBase;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\Entity\Role;
 
 /**
  * LesserFormsController.
  */
-class LesserFormsController {
+class LesserFormsController extends ConfigFormBase  {
 
   const CONFIG_FIELDS = array(
     'promote',
@@ -22,9 +24,16 @@ class LesserFormsController {
   );
 
   /**
+   * gets the form ID
+   */
+  public function getFormId(){
+    return 'lesser_forms_settings';
+  }
+
+  /**
    * Show the configuration panel.
    */
-  public function config() {
+  public function buildForm(array $form, FormStateInterface $form_state) {
 
     $settings = \Drupal::config('lesser_forms.settings')
       ->get('lesser_forms_config');
@@ -48,6 +57,11 @@ class LesserFormsController {
         );
       }
     }
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Save config'),
+      '#submit' => array('submitForm'),
+    );
     return $form;
   }
 
@@ -76,5 +90,24 @@ class LesserFormsController {
     }
     return $header;
   }
+
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    
+    // \Drupal::config('lesser_forms.settings')->set();
+    //  ->set('enabled', $form_state['values']['maintenance_mode'])
+    //  ->set('message', $form_state['values']['maintenance_mode_message'])
+    //  ->save();
+
+    parent::submitForm($form, $form_state);
+  }
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+  }
+
+  public function getEditableConfigNames(){
+    return [
+      'lesser_forms.settings',
+    ];
+  }
+
 
 }
