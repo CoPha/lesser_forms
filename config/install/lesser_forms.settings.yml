@@ -1,3 +1,4 @@
 lesser_forms_config:
+  label: "Lesser Forms configuration"
   isset: FALSE
   roles: NULL
