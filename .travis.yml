@@ -73,8 +73,8 @@ env:
 
   matrix:
     # [[[ SELECT ANY OR MORE OPTIONS ]]]
-    # DRUPAL_TI_RUNNERS="phpunit"
-    - DRUPAL_TI_RUNNERS="simpletest"
+    - DRUPAL_TI_RUNNERS="phpunit"
+    #- DRUPAL_TI_RUNNERS="simpletest"
     #- DRUPAL_TI_RUNNERS="behat"
     #- DRUPAL_TI_RUNNERS="phpunit simpletest behat"
 
@@ -89,18 +89,6 @@ mysql:
 
 before_install:
   - composer self-update
-  - cd ./tests
-  - composer global require "lionsad/drupal_ti:1.*"
-  - drupal-ti before_install
-
-install:
-  - drupal-ti install
-
-before_script:
-  - drupal-ti before_script
 
 script:
-  - drupal-ti script
-
-after_script:
-  - drupal-ti after_script
+  - ./vendor/bin/phpunit -c core --group lesser_forms
