@@ -89,6 +89,10 @@ mysql:
 
 before_install:
   - composer self-update
+  - composer global require "lionsad/drupal_ti:1.*"
+
+install:
+  - drupal-ti install
 
 script:
   - phpunit -c core --group lesser_forms
