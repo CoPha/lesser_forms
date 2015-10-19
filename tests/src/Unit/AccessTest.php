@@ -21,7 +21,9 @@ use Symfony\Component\HttpFoundation\Request;
  * @group lesser_forms
  */
 class AccessTest extends UnitTestCase {
-
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp() {
     parent::setUp();
   }
