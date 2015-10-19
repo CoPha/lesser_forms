@@ -32,17 +32,6 @@ class AccessTest extends UnitTestCase {
    * Tests access on a unit.
    */
   public function testAccess() {
-    $route = new Route('/foo', array(), array('_entity_access' => 'node.update'));
-    $request = new Request();
-    $node = $this->getMockBuilder('Drupal\node\Plugin\Core\Entity\Node')
-      ->disableOriginalConstructor()
-      ->getMock();
-    $node->expects($this->any())
-      ->method('access')
-      ->will($this->returnValue(TRUE));
-    $access_check = new AccessManager();
-    $request->attributes->set('node', $node);
-    $access = $access_check->access($route, $request);
-    $this->assertEquals(TRUE, $access);
+    // @todo: Write test that check on the access level based on permission.
   }
 }
