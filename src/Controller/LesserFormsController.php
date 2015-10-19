@@ -57,6 +57,12 @@ class LesserFormsController extends ConfigFormBase  {
         );
       }
     }
+    // Lesser Forms is active on these form machine names.
+    $form['applies_to'] = array(
+      '#title' => t('Enabled on'),
+      '#type' => 'textarea',
+      '#description' => t('Lesser Forms will only be active on the form machine names you insert here. Only one machine name per line. Use new lines to add multiples.'),
+    );
     $form['submit'] = array(
       '#type' => 'submit',
       '#value' => t('Save config'),
