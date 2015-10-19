@@ -91,4 +91,4 @@ before_install:
   - composer self-update
 
 script:
-  - ./vendor/bin/phpunit -c core --group lesser_forms
+  - phpunit -c core --group lesser_forms
